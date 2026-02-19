@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Page Range Extractor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PDF Page Range Extractor</h1>
+            <p>Extract specific pages from your PDF file</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <label for="pdf-upload" class="file-label">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <span id="file-name">Choose PDF file or drag & drop</span>
+                </label>
+                <input type="file" id="pdf-upload" accept=".pdf" />
+            </div>
+
+            <div id="pdf-info" class="pdf-info hidden">
+                <p>Total pages: <strong id="total-pages">0</strong></p>
+            </div>
+
+            <div id="range-section" class="range-section hidden">
+                <div class="input-group">
+                    <label for="start-page">Start Page</label>
+                    <input type="number" id="start-page" min="1" placeholder="1" />
+                </div>
+                <div class="input-group">
+                    <label for="end-page">End Page</label>
+                    <input type="number" id="end-page" min="1" placeholder="1" />
+                </div>
+            </div>
+
+            <div id="message" class="message hidden"></div>
+
+            <button id="extract-btn" class="extract-btn hidden">Extract Pages</button>
+        </main>
+
+        <footer>
+            <p>All processing happens in your browser. Your PDF never leaves your device.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
